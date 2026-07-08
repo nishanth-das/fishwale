@@ -18,7 +18,7 @@ export default function BannerSlider({ banners }: { banners: any[] }) {
   if (!banners || banners.length === 0) {
     // Default static fallback
     return (
-      <section className="relative h-[70vh] min-h-[600px] w-full bg-black">
+      <section className="relative h-[50vh] min-h-[400px] md:h-[70vh] md:min-h-[600px] w-full bg-black">
         <Image 
           src="/images/hero.png" 
           alt="Fresh Premium Seafood" 
@@ -26,20 +26,21 @@ export default function BannerSlider({ banners }: { banners: any[] }) {
           className="object-cover opacity-50"
           priority
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/80 via-transparent to-transparent">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/90 via-black/50 to-black/20">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center px-4 max-w-4xl"
+            className="text-center px-4 max-w-4xl relative z-10"
           >
-            <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white mb-6 leading-tight drop-shadow-xl">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold text-white mb-4 md:mb-6 leading-tight drop-shadow-2xl">
               Premium Fresh Fish <br className="hidden md:block"/> Delivered to You
             </h1>
-            <p className="text-lg md:text-2xl text-gray-200 mb-10 font-light drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-2xl text-gray-200 mb-8 md:mb-10 font-medium drop-shadow-lg">
               Hygienically cleaned, expertly cut, and delivered fresh across Agartala and Tripura.
             </p>
-            <Link href="/shop" className="inline-flex items-center gap-2 px-10 py-4 bg-brand-primary text-white font-bold text-lg rounded-full hover:bg-red-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+            <Link href="/shop" className="inline-flex items-center gap-2 px-8 py-3 md:px-10 md:py-4 bg-brand-primary text-white font-bold text-base md:text-lg rounded-full hover:bg-red-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]">
               Shop Now
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </Link>
@@ -50,7 +51,7 @@ export default function BannerSlider({ banners }: { banners: any[] }) {
   }
 
   return (
-    <section className="relative h-[70vh] min-h-[600px] w-full bg-black overflow-hidden group">
+    <section className="relative h-[50vh] min-h-[400px] md:h-[70vh] md:min-h-[600px] w-full bg-black overflow-hidden group">
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
@@ -71,20 +72,21 @@ export default function BannerSlider({ banners }: { banners: any[] }) {
                   className="object-cover opacity-50"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/30"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
                 {banner.title && (
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.3 }}
-                      className="text-center px-4 max-w-4xl pointer-events-auto"
+                      className="text-center px-4 max-w-4xl pointer-events-auto relative z-10"
                     >
-                      <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white mb-6 leading-tight drop-shadow-2xl">
+                      <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold text-white mb-4 md:mb-6 leading-tight drop-shadow-2xl">
                         {banner.title}
                       </h1>
                       {banner.link && (
-                        <span className="inline-flex items-center gap-2 px-10 py-4 bg-brand-primary text-white font-bold text-lg rounded-full hover:bg-red-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+                        <span className="inline-flex items-center gap-2 px-8 py-3 md:px-10 md:py-4 bg-brand-primary text-white font-bold text-base md:text-lg rounded-full hover:bg-red-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]">
                           Explore More
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </span>
