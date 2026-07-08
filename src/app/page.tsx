@@ -64,13 +64,13 @@ export default async function HomePage() {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-heading font-bold text-center text-brand-dark mb-12">Shop by Category</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
               {categories.map((cat) => (
                 <Link key={cat.id} href={`/shop/${cat.slug}`} className="group relative rounded-2xl overflow-hidden aspect-[4/3] block shadow-sm hover:shadow-xl transition-all">
                   <Image src={cat.image_url || '/images/placeholder.jpg'} alt={cat.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold text-white">{cat.name}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">{cat.name}</h3>
                     <span className="bg-brand-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-4 group-hover:translate-x-0">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
                     </span>
@@ -94,7 +94,7 @@ export default async function HomePage() {
               <Link href="/shop" className="text-brand-primary font-semibold hover:underline hidden sm:block">View All Products &rarr;</Link>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
               {bestsellers.map((product: any) => (
                 <ProductCard key={product.id} product={product} category={product.categories} />
               ))}

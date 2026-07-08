@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileNav from "@/components/MobileNav";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,12 +54,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <body className="antialiased min-h-screen flex flex-col font-sans bg-background text-foreground">
+      <body className="antialiased min-h-screen flex flex-col font-sans bg-background text-foreground pb-16 md:pb-0">
         <Header />
         <main className="flex-grow">
           {children}
         </main>
         <Footer />
+        <MobileNav />
       </body>
     </html>
   );
