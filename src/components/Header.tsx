@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { createBrowserClient } from '@supabase/ssr'
@@ -44,8 +45,8 @@ export default function Header() {
           
           {/* Logo & Primary Nav */}
           <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-heading font-bold text-brand-primary tracking-tight">
-              FishWale
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.png" alt="FishWale" width={160} height={48} className="h-10 w-auto object-contain" priority />
             </Link>
             <nav className="hidden md:flex items-center gap-6">
               <Link href="/shop" className="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors">Shop All</Link>
